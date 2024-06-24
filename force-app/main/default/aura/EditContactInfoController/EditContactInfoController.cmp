@@ -1,0 +1,18 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <!-- Use the lightning:recordEditForm component -->
+    <lightning:recordEditForm
+                              objectApiName="Contact"
+                              recordId="{!v.recordId}"
+                              onsubmit="{!c.handleSubmit}"
+                              onsuccess="{!c.handleSuccess}"
+                              onerror="{!c.handleError}">
+        
+        <lightning:inputField fieldName="Email" aura:id="email" onchange="{!c.validateEmail}" />
+       	<lightning:inputField fieldName="Phone" aura:id="phone" onchange="{!c.validatphoneonchange}"  />        
+        <div class="slds-m-top_medium">
+            <lightning:button type="submit" label="Save" class="slds-m-top_medium" />
+        </div>
+        
+    </lightning:recordEditForm>
+    
+</aura:component>

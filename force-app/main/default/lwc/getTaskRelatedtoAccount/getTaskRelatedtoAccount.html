@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Account Related task" icon-name="standard:Task">
+        <div class="slds-m-around_medium">
+            <template if:true={tasks.data}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={tasks.data} for:item="tas">
+                            <tr key={tas.Id}>
+                                <td>{tas.Name}</td>
+                                
+                                <td>{tas.Subject}</td>
+
+                                <td><lightning-combobox
+                                        name="status"
+                                        label="Status"
+                                        value={tas.Status}
+                                        options={statusOptions}
+                                        onchange={handleChangeStatus}
+                                    ></lightning-combobox></td>
+
+                               
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+            <template if:true={tasks.error}>
+                <p>Error loading task</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

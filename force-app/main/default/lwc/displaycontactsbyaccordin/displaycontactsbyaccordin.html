@@ -1,0 +1,27 @@
+<template>
+    <template if:true={contactList} for:each={contactsList} for:item="con" for:index="index">
+        <li key={con.Id}>
+            {con.Name}
+        </li>
+    </template>
+        <lightning-card variant="Narrow">
+            <lightning-accordion allow-multiple-sections-open active-section-name="A">
+                <template for:each={allData} for:item="acc">
+                    <lightning-accordion-section name="B" key={acc.Id} label={acc.Name}>
+                        <lightning-datatable
+                            key-field="id"
+                            data={acc.Contacts}
+                           
+                            columns={columnsList}
+                           >
+                        </lightning-datatable>
+                       
+
+
+
+                    </lightning-accordion-section>
+                </template>
+            </lightning-accordion>
+        </lightning-card>
+    </template>
+</template>

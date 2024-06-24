@@ -1,0 +1,11 @@
+<aura:component   implements="lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+                access="global" controller="DeleteAccountBulk"> 
+    <aura:attribute name="deleteRecordSuccesscount" type="String"/>
+    
+
+    <aura:attribute name="accList" type="Account"/>
+    <aura:attribute name="AccountSelectedId" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onPageReferenceChange}" />
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.onPageReferenceChange}" />
+    <aura:attribute name="AllAccountListView" type="Object"/>
+</aura:component>

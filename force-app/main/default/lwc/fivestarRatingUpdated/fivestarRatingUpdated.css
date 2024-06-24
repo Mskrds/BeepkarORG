@@ -1,0 +1,14 @@
+.editable li {
+  cursor: pointer;
+  display: inline-block; 
+  margin-right: 2px;    
+  font-size: 24px;  
+}
+
+.selected {
+  color: gold;
+}
+
+.readonly li {
+  pointer-events: none;
+}

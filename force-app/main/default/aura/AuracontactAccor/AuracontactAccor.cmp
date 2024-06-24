@@ -1,0 +1,20 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" controller="contactAccordianApex">
+    <aura:attribute name="firstBatchCon" type="List" />
+    <aura:attribute name="columnCon1" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:card title="Accordian example">
+        <h1 class="headStyle">This is an accordian example to display contacts</h1>
+        <lightning:accordion allowMultipleSectionsOpen = "true" >
+            <lightning:accordionSection name= "firstBatchCon" label="All Contacts">
+                <lightning:datatable 
+                                     keyField="Id"
+                                     data="{!v.firstBatchCon}"
+                                     columns="{!v.columnCon1}"
+                                     hideCheckboxColumn="true"
+                                     
+                                     />
+            </lightning:accordionSection>
+        </lightning:accordion>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,26 @@
+<aura:component implements="force:lightningQuickAction" >
+	
+<!-- ContactEditForm.cmp -->
+    <aura:attribute name="contactRecord" type="Contact"/>
+    <aura:attribute name="formFields" type="String[]" default="Email,Phone"/>
+    
+    <lightning:recordEditForm 
+        objectApiName="Contact"
+        recordId="{!v.recordId}"
+        onload="{!c.handleLoad}"
+        onsubmit="{!c.handleSubmit}"
+        onsuccess="{!c.handleSuccess}"
+        onerror="{!c.handleError}">
+
+        <!-- Iterate through form fields -->
+        <aura:iteration items="{!v.formFields}" var="field">
+            <lightning:messages />
+            <lightning:inputField fieldName="{!field}" />
+        </aura:iteration>
+
+        <!-- Submit button -->
+        <div class="slds-m-top_medium">
+            <lightning:button variant="brand" type="submit" label="Save" />
+        </div>
+    </lightning:recordEditForm>
+</aura:component>

@@ -1,0 +1,68 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="AuraSortingPagnation">
+   
+    <!-- aura attributes to store data -->
+    <aura:attribute name="listOfAccounts" type="list"/> 
+    <aura:attribute name="paginationList" type="list"/>
+     
+   
+    <!-- sorting data variables -->
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" default="Name"/>
+    <aura:attribute name="sortedDirection" type="string" default="asc" />
+     
+   
+                                    <h1>
+                                        <span>Lightning Component Datatable with Sorting and pagination</span>
+                                        <span class="slds-page-header__title slds-truncate" title="TechDicer">TechDicer</span>
+                                    </h1>
+                                <br/>
+     
+    <lightning:card title="Account Data with Sorting and Pagination" iconName="standard:account">
+        <p class="slds-var-p-around_small">
+            <lightning:layout multipleRows="true" horizontalAlign="center">
+                <lightning:layoutItem padding="around-small" size="12">
+                    <lightning:datatable keyField="id" data="{!v.paginationList}"
+                                         columns="{!v.columns}"
+                                         hideCheckboxColumn="true"
+                                         onsort="{!c.updateSorting}"
+                                         sortedBy="{!v.sortedBy}"
+                                         sortedDirection="{!v.sortedDirection}"  />
+                </lightning:layoutItem>
+                 
+                <!--  Pagination Buttons Start -->
+                <div class="slds-align_absolute-center"> 
+                    <lightning:button label="First"
+                                      iconName="utility:left"
+                                      iconPosition="left"
+                                      onclick="{!c.onFirst}"
+                                      disabled="{! v.currentPageNumber == 1}" />
+                    <lightning:button label="Previous"
+                                      disabled="{!v.currentPageNumber == 1}" 
+                                      onclick="{!c.handlePrevious}"
+                                      variant="brand"
+                                      iconName="utility:back"
+                                      name="previous"/>
+                     
+                    <span class="slds-badge slds-badge_lightest"
+                          style="margin-right: 10px;margin-left: 10px;">
+                        Page {!v.currentPageNumber} out of {!v.totalPages}
+                    </span>
+                     
+                    <lightning:button label="Next"
+                                      disabled="{!v.currentPageNumber == v.totalPages}"
+                                      onclick="{!c.handleNext}"
+                                      variant="brand"
+                                      iconName="utility:forward"
+                                      iconPosition="right"
+                                      name="next"/>
+                    <lightning:button label="Last"
+                                      iconName="utility:right"
+                                      iconPosition="right"
+                                      onclick="{!c.onLast}"
+                                      disabled="{!v.currentPageNumber == v.totalPages}" />
+                </div>        
+            </lightning:layout>
+        </p>
+    </lightning:card>
+     
+</aura:component>

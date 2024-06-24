@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Country and State">
+       <div class="slds-p-around_medium">
+           <lightning-combobox
+               name="Select Country"
+               label="Select Country"
+               value={selectedCountry}
+               options={countryPicklistValues}
+               onchange={handleCountryChange} >
+            </lightning-combobox>
+
+            <lightning-combobox
+                name="Select State"
+                label="Select State"
+                value={selectedState}
+                options={StatePicklistValues}
+                onchange={handleStateChange}>
+            </lightning-combobox>
+        </div>
+    </lightning-card>
+</template>

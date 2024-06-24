@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Create Lead Record">
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" name="ledfName"  label="Enter Last Name" onchange={handleOnchange}></lightning-input>
+            <lightning-input type="text" name="ledCompany" label="Enter Company" onchange={handleOnchange}></lightning-input>
+            <lightning-input type="text" name="ledlName" label="Enter Company" onchange={handleOnchange}></lightning-input>
+            
+            <div class="slds-p-horizontal_medium">
+                <lightning-combobox name="Gender" label="GENDER" value={value} options={GenderOptions} onchange={handleOnchange}> </lightning-combobox> 
+           </div>
+
+            <lightning-button label="NEXT" variant="brand" onclick={handleClick}></lightning-button>
+        </div>
+    </lightning-card>
+    <!-- <template if:true={isSecondPage}>
+        <c-create-new-record2 fname1={ledFirstName}, lname1={ledLastLName}, comp1={ledCompany}, gen1={ledGender}></c-create-new-record2>
+    </template> -->
+</template>

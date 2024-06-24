@@ -1,0 +1,25 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+<!-- ContactEditForm.cmp -->
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="editedRecord" type="Object" />
+
+    <force:recordData 
+        recordId="{!v.recordId}" 
+        targetFields="{!v.record}"
+        fields="Id,Name,Email,Phone"
+        mode="EDIT"
+        recordUpdated="{!c.handleRecordUpdated}" 
+        layoutType="FULL"
+    />
+
+    <lightning:card title="{!v.record.Name}">
+        <div class="slds-p-around_medium">
+            <lightning:input label="Email" value="{!v.editedRecord.Email}" />
+            <lightning:input label="Phone" value="{!v.editedRecord.Phone}" />
+
+            <div class="slds-m-top_medium">
+                <lightning:button label="Save Changes" onclick="{!c.saveChanges}" />
+            </div>
+        </div>
+    </lightning:card>
+</aura:component>

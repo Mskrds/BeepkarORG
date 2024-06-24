@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title=" opportunity Records" class="custom-card">
+         <div class="slds-p-around_medium custom-card-content">
+             <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={newOppoList} for:item="opp" for:index="index">
+                        <tr key={opp.Id}>
+                           
+                            <td>
+                                <lightning-input type="text" value={opp.Name} onchange={handleInputChange} data-index={index} data-field="Name"></lightning-input>
+                            </td>
+                            <td>
+                                <lightning-input type="text" value={opp.Amount} onchange={handleInputChange} data-index={index} data-field="Amount"></lightning-input>
+                            </td>
+                            <td>
+                                <lightning-input type="text" value={opp.Email__c} onchange={handleInputChange} data-index={index} data-field="Email__c"></lightning-input>
+                            </td>
+                     <!--<button class="slds-button slds-button_brand" onclick={handleSave} data-index={index}>Edit</button>-->
+
+                        </tr>
+                    </template>
+                </tbody>
+
+            </table>
+            <button class="slds-button slds-button_brand" onclick={handleSave}>Edit</button>
+
+         </div>
+
+
+    </lightning-card>
+
+</template>

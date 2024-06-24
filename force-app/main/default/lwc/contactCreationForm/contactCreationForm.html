@@ -1,0 +1,11 @@
+<!--Create a contact under the account-->
+<template>
+    <lightning-card title="Create Contact" icon-name="standard:contact">
+        <div class="slds-p-around_medium">
+           <!-- <lightning-input label="First Name" value={firstName} onchange={handleFirstNameChange}></lightning-input>-->
+            <lightning-input label="Last Name" value={LastName} onchange={handleLastNameChange}></lightning-input>
+            <lightning-input label="Email" type="email" value={Email} onchange={handleEmailChange}></lightning-input>
+            <lightning-button label="Create Contact" onclick={Insertcon}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Role Picklist Values" icon-name="standard:Picklist_choice">
+        <lightning-combobox
+            label="Select Role Type"
+            value={selectedroleType}
+            options={roleValues}
+            onchange={handleRoleChange}
+            class="slds-m-bottom_small"
+        ></lightning-combobox>
+
+           
+              <template if:true={showHrFields}>
+                <!-- Additional input fields for HR -->
+                <lightning-input label="HR firstName" value={hrfirstName} name='hrfirstName' onchange={handleHrNameChange} class="slds-m-bottom_small"></lightning-input>
+                <div>FirstName : {hrfirstName}</div>
+                 <lightning-input label="HR LastName" value={hrsecondName} name='hrsecondName' onchange={handleHrSecondNameChange} class="slds-m-bottom_small"></lightning-input>
+                <div>SecondName : {hrsecondName}</div>
+            </template>
+
+            <template if:true={showLeadFields}>
+                <lightning-input label="Lead FirstName" value={leadFirstName} onchange={handleLeadFirstNameChange} class="slds-m-bottom_small"></lightning-input>
+                 <lightning-input label="Lead LastName" value={leadsecondName} onchange={handleLeadSecondNameChange} class="slds-m-bottom_small"></lightning-input>
+                <!-- Add more input fields as needed -->
+            </template>
+
+            <template if:true={showDeveloperFields}>
+                <lightning-input label="Developer FirstName" value={devfirstName} onchange={handleDeveloperFirstNameChange} class="slds-m-bottom_small"></lightning-input>
+                 <lightning-input label="Developer LastName" value={devsecondName} onchange={handleDeveloperSecondNameChange} class="slds-m-bottom_small"></lightning-input>
+                <!-- Add more input fields as needed -->
+            </template>
+
+             <template if:true={showTechnicalLeadFields}>
+                <lightning-input label="Technical Lead FirstName" value={teamLeadFirstName} onchange={handleTeamleadFirstNameChange} class="slds-m-bottom_small"></lightning-input>
+                 <!-- <lightning-input label="Technical Lead LastName" value={tLeadName} onchange={handleTeamleadNameChange} class="slds-m-bottom_small"></lightning-input> -->
+                <!-- Add more input fields as needed -->
+            </template>
+
+
+        <template if:true={error}>
+            <p>Error retrieving picklist values</p>
+        </template>
+        <lightning-button variant="brand" label="Save" title="Save" onclick={handleSave}></lightning-button>
+    </lightning-card>
+</template>

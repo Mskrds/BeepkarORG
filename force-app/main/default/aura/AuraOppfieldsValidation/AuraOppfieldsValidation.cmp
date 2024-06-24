@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="AuraOppFieldsValidationApex" >
+	
+     <aura:attribute name="oppobj"
+                    type="opportunity" default="{'sobjectType':'opportunity', 
+                                            'Name':'',
+                                            'Email__c':'',
+                                            'Phone__c':''}"/>
+    
+    <aura:attribute name ="oppoId" type="String"/>
+    
+   
+    <lightning:button variant="brand" label="submit" onclick="{!c.doaction}"/>
+    <lightning:input aura:id="formFieldToValidate" label="Email" name="emailField" value ="{!v.opportunity.Email__c}"/>
+    <lightning:input label="Phone" value="{!v.opportunity.Phone__c}"/>
+</aura:component>

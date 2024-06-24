@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="ContactInfoFormController" >  
+<!-- ContactInfoForm.cmp -->
+   <!-- ContactInfoForm.cmp -->
+    <aura:attribute name="contact" type="Contact" />
+    <aura:attribute name="editedContact" type="Contact" />
+    <aura:attribute name="showForm" type="Boolean" default="false" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:card title="{!v.contact.LastName}">
+        <aura:set attribute="actions">
+            <lightning:button label="Edit" onclick="{!c.showForm}" />
+        </aura:set>
+
+        <aura:if isTrue="{!v.showForm}">
+            <!-- Display form when showForm is true -->
+            <div class="slds-p-around_medium" style="border: 1px solid #ddd;">
+                <lightning:input label="Last Name" value="{!v.editedContact.LastName}" />
+                <lightning:input label="Email" value="{!v.editedContact.Email}" />
+                <lightning:input label="Phone" value="{!v.editedContact.Phone}" />
+
+                <div class="slds-m-top_medium">
+                    <lightning:button label="Save" onclick="{!c.saveContact}" />
+                    <lightning:button label="Cancel" onclick="{!c.hideForm}" class="slds-m-left_medium" />
+                </div>
+            </div>
+        </aura:if>
+    </lightning:card>
+</aura:component>

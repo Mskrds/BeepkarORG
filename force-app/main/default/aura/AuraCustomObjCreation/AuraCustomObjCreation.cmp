@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"  controller="AuraCustomObjCreationApex">
+	 <aura:attribute name="customobj"
+                    type="City__c" default="{'sobjectType':'City__c', 
+                                            'Name':'',
+                                            'Pin_Code__c':'',
+                                            'Phone__c':''}"/>
+    
+    <aura:attribute name ="cityId" type="String"/>
+    
+    <lightning:input value="{!v.customobj.Name}" label="CityName"/>  
+    <lightning:input value="{!v.customobj.Pin_Code__c}" label="Pin Code" />
+    <lightning:input value="{!v.customobj.Phone__c}"  label="Phone" />
+    
+    <lightning:button variant="brand" label="save" title="save" onclick="{!c.createrecord}"/>
+     
+   
+</aura:component>

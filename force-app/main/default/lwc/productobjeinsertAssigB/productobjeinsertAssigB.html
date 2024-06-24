@@ -1,0 +1,57 @@
+<!-- productList.html -->
+<template>
+<template if:true={data}>
+    <lightning-card title="Product List" icon-name="standard:product">
+        <div class="slds-p-around_medium">
+            
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                          <th><lightning-input data-id="toggle10" type="checkbox" onchange={selectall}></lightning-input></th>
+                        <th>Product Name</th>
+                        <th>IsActive</th>
+                        <!-- Add more columns as needed -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={data} for:item="prod">
+                        <tr key={prod.Id}>
+
+                            <th><lightning-input type="checkbox" data-id="toggle" value={prod.Id} checked={selectedItems} onchange={handleCheckboxChange}></lightning-input></th>
+                            <td>{prod.Name}</td>
+                            <td>{prod.IsActive}</td>
+                         
+                        </tr>                        
+                    </template>          
+                </tbody>
+            </table>
+            </br>
+            <lightning-button variant="brand" label="Insert" disabled={disableBtn} onclick={nextScrren} class="slds-m-left_x-small" ></lightning-button>
+           
+        </div>
+    </lightning-card>
+</template>
+
+ <template if:true={selectedproducts}>
+     <div class="slds-p-around_medium">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>IsActive</th>
+                    <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+           <tbody>
+               <template for:each={filteredList} for:item="prod">
+                    <tr key={prod.Id}>
+                        
+                        <td>{prod.Name}</td>
+                        <td>{prod.IsActive}</td>
+                    </tr>                        
+                </template>         
+            </tbody> 
+        </table>
+    </div>
+</template>
+</template>

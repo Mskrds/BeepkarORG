@@ -1,0 +1,81 @@
+<!--Cild component- accountDetails.html -->
+<template>
+    <lightning-card> 
+            <lightning-tabset>
+                <lightning-tab label="Account Details" value="1" onactive={accdetailshandleclick} class="slds-m-left_x-small">
+                    <div class="slds-p-around_medium" if:true={showAccountRecords}>
+                        <template for:each={accounts} for:item="acc">
+                            <div key={acc.Id} class="slds-grid slds-wrap">
+                                <div class="slds-col">
+                                    <strong>Name:</strong> {acc.Name}
+                                </div>
+                                <div class="slds-col">
+                                    <strong>Email:</strong> {acc.Email__c}
+                                </div>
+                                <div class="slds-col">
+                                    <strong>Rating:</strong>{acc.Rating}
+                                </div>
+                                <div class="slds-col">
+                                    <strong>Phone:</strong>{acc.Phone}
+                                </div>
+                                <div class="slds-col">
+                                    <strong>Type:</strong>{acc.Type}
+                                </div>
+                                <div class="slds-col">
+                                    <strong>Industry:</strong>{acc.Industry}
+                                </div>
+                                
+                            </div>
+                        </template>
+                    </div>
+                </lightning-tab>
+
+                <lightning-tab label="Related Contacts" value="2" onactive={contactshandleClick}>
+                    <div class="slds-p-around_medium" if:true={showContactRecords}>
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Department</th>
+                                    <th>CleanStatus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- to get the contact records to editable-->
+                                <template for:each={pageList} for:item="contact" key={contact.Id}>
+                                    <tr key={contact.Id}>
+                                        <td>
+                                            <lightning-input type="text" value={contact.Name}   data-field="Name"></lightning-input>
+                                        </td>
+                                        <td>
+                                            <lightning-input type="text" value={contact.Email}  data-field="Email"></lightning-input>
+                                        </td>
+                                        <td>
+                                            <lightning-input type="Phone" value={contact.Phone}  data-field="Phone"></lightning-input>
+                                        </td>
+                                        <td>
+                                            <lightning-input type="picklist" value={contact.Department}  data-field="Department"></lightning-input>
+                                        </td>
+                                        <td>
+                                            <lightning-input type="picklist" value={contact.CleanStatus}  data-field="CleanStatus"></lightning-input>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                             <button class="slds-button slds-button_brand" onclick={handleSave}>Save</button>
+                             <br>
+                        <!--PAGINATION SECTION STARTED-->
+                        <div class="butns">
+                            <button  label="Previous" onclick={handlePrevious}>Previous</button>
+                            <span >{currentPage} of {totalPages}</span>
+                            <button  label="Next"  onclick={handleNext}>Next</button>
+                        </div>
+                    </div>
+                </lightning-tab>
+            </lightning-tabset>
+             
+    </lightning-card>
+</template>

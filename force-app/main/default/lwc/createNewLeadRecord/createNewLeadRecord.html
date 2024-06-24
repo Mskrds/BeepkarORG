@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title="Create Lead Record">  
+    <lightning-input type="text" variant="standard" name="Lname" label="LastName" placeholder="type here..." onchange={handleOnchange}></lightning-input>
+    <lightning-input type="text" variant="standard" name="Fname" label="FirstName" placeholder="type here..." onchange={handleOnchange}></lightning-input>
+    <lightning-input type="text" variant="standard" name="comp" label="Company" placeholder="type here..." onchange={handleOnchange}></lightning-input>
+    <lightning-button variant="base" label="create" title="Lead" onclick={handleClick}></lightning-button>
+    </lightning-card>
+</template>

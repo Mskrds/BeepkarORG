@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <description>Do Validation of Phone, email in Opportunity Forms
+1. Phone can’t accept character, it should be of only 10-12 digits.
+2. Email pattern validation should be checked.</description>
+</AuraDefinitionBundle>

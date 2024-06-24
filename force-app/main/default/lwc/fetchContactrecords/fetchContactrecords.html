@@ -1,0 +1,28 @@
+<template>
+    <div style="height: 300px;">
+        <lightning-datatable
+                key-field="id"
+                show-row-number-column
+                data={conlist} 
+                columns={columns}
+                onsave={savehandle}
+                draft-value={drafthandle}>
+        </lightning-datatable>
+    </div>
+</template>
+
+
+
+
+
+
+
+
+<!-- The required key-field attribute associates each row with a contact record. 
+The data attribute holds the data retrieved through the wire service from either an Apex method or a wire adapter.
+ The columns attribute assigns a record field to each column and customizes the behavior of the columns. -->
+ <!-- onsave event handler calls updateRecord(recordInput, clientOptions) to save record changes.
+ show-row-number-column helps to keep the serial numbers -->
+
+ <!-- When a user edits a value, the updated value is stored in draft-values . -->
+  <!--hide-checkbox-column : Hide the checbox square shapes -->

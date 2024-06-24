@@ -1,0 +1,15 @@
+<apex:page standardController="Contact" showHeader="false" sidebar="false" recordSetVar="contacts">
+    <apex:includeLightning />    
+    <div id="LightningComponentid" />    
+    <script>
+    $Lightning.use("c:contactobjDeleteAssig", function() {
+        $Lightning.createComponent("c:ContactobjDeleteAssign",
+          {
+          },
+          "LightningComponentid",
+          function(cmp) {
+             console.log('LWC Componenet added in VF page');
+          });
+    });
+    </script>
+</apex:page>

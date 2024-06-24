@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Choose Account Name" icon-name="standard:account">
+        <lightning-accordion allow-multiple-sections-open>
+            <lightning-accordion-section label="Select Account">
+                <div class="slds-m-around_medium">
+                    <lightning-accordion>
+                        <template for:each={acc} for:item="item">
+                            <lightning-accordion-section key={item.Id} label={item.Name} name={item.Id} onclick={handleAccountClick}>
+                                <!-- Display contact details here if needed -->
+                                <template for:each={item.contacts} for:item="contact">
+                                    <div key={contact.Id} value={contact.Id} onclick={handleContactClick}>{contact.Name}</div>
+                                </template>
+                            </lightning-accordion-section>
+                        </template>
+                    </lightning-accordion>
+                </div>
+            </lightning-accordion-section>
+
+
+
+            <lightning-accordion-section label="Select Opportunity">
+                <div class="slds-m-around_medium">
+                    <select class="slds-select">
+                        <option>Select Opportunity</option>
+                        <template for:each={opps} for:item="opp">
+                            <option key={opp.Id} value={opp.Id}>{opp.Name}</option>
+                        </template>
+                    </select>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </lightning-card>
+</template>

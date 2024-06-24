@@ -1,0 +1,9 @@
+<template>
+  <ul class={starClass}>
+    <template for:each={stars} for:item="star">
+      <li key={star.index} class={star.cssClass} data-index={star.index}>
+        &#9733;
+      </li>
+    </template>
+  </ul>
+</template>

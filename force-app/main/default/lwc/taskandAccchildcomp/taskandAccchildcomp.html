@@ -1,0 +1,48 @@
+<template>
+    <lightning-card  class="custom-card">
+    <div class="main">
+        <h2>Get RelatedTasks from Account</h2>
+    </div>
+        
+
+        <div class="slds-p-around_medium custom-card-content ">
+             <table  class="slds-table  slds-table_cell-buffer slds-table_bordered" >
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col">Serial Number</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={newtaskList} for:item="li" for:index="index" >
+                        <tr key={li.Id}>
+                            <td>
+                              <lightning-input type="text" value={li.sno} data-index={index} readonly></lightning-input>
+                            </td>
+                            
+                            <td>
+                                <lightning-formatted-text value={li.Subject}></lightning-formatted-text>
+                            </td>
+                            <td>
+                                <lightning-input type="text" value={li.Description} data-index={index} data-field="Description" readonly></lightning-input>
+                            </td>
+                            <td>
+                                <lightning-combobox type="picklist" value={li.Status} options={statusval} data-index={index} data-field="Status" onchange={handlechangeNew}></lightning-combobox>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+
+            </table>
+           
+
+         </div>
+         <div class="button">
+
+             <lightning-button variant="brand" label="Save" title="Primary action" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+         </div>
+    </lightning-card>
+
+</template>

@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title ="Lead Records" icon-name="Standard:lead">
+
+       <div class="slds-p-around_medium">
+
+        <table class = "slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr>
+                    <th>LeadName</th>
+                    <th>Company</th>
+                    <th>status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={showleadrecords} for:item = "led">
+                    <tr key={led.Id}>
+                        <td>{led.Name}</td>
+                        <td>{led.Company}</td>
+                        <td class={led.color}>{led.Status}</td>
+                    </tr>
+                </template>
+
+            </tbody>
+        </table>
+     </div>
+    </lightning-card>
+</template>

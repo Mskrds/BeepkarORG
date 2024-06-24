@@ -1,0 +1,83 @@
+<template>
+            <!-- Fetch the Account Records (Account is Parent Object)-->
+           
+            <lightning-card title="All Account" icon-name="standard:Account">
+                 <template if:true={showAccount}>
+                <div class="slds-p-around_medium">
+                  
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>
+                            <tr>
+                            
+                                <th>Name</th> 
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Site</th>
+                            
+                                <!-- Add more columns as needed -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={Accdata} for:item="Acc">
+                                <tr key={Acc.Id}>
+                                 <td>
+                                    <lightning-input
+                                        type="checkbox"
+                                        data-id={Acc.Id}
+                                        value={Acc.Id}
+                                        checked={Acc.checked}
+                                        onchange={handleCheckboxChange}
+                                    ></lightning-input>
+                                </td>
+
+                                    <td>{Acc.Name}</td> 
+                                    <td>{Acc.Email__c}</td> 
+                                    <td>{Acc.Phone}</td>
+                                    <td>{Acc.Site}</td>    
+                                </tr> 
+                                                       
+                            </template>
+                             <td> <lightning-button
+                            variant="brand"
+                            label="Cancel"
+                            onclick={closeAction}
+                            class="slds-m-right_small"
+                        ></lightning-button>
+                         </td>
+                        </tbody>
+                    </table>
+                </div>
+                 </template>
+            </lightning-card>
+           
+
+            <!-- Fetch the Opportunity Records (Opportunity is a Related Object)-->
+            
+            <lightning-card title="Related opportunity" icon-name="standard:opportunity">
+                <template if:true={showOpportunity}>
+                <div class="slds-p-around_medium">
+               
+         
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th> 
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <!-- Add more columns as needed -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={Oppodata} for:item="opp">
+                                <tr key={opp.Id}>ss
+                                    <td>{opp.Name}</td> 
+                                    <td>{opp.Email__c}</td> 
+                                    <td>{opp.Phone__C}</td>    
+                                </tr>                        
+                            </template>          
+                        </tbody>
+                    </table>
+                </div>
+                </template>
+            </lightning-card>
+    </template>

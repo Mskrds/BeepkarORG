@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="ContactDetailsController" > 
+    <aura:attribute name="contactRecord" type="Contact" />
+    <aura:attribute name="editedContact" type="Contact" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div class="slds-box">
+        <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Contact">
+            <div class="slds-grid slds-wrap">
+                <lightning:outputField fieldName="LastName" />
+                <lightning:outputField fieldName="Email" />
+                <lightning:outputField fieldName="Phone" />
+                
+            </div>
+        </lightning:recordViewForm>
+
+        <div class="slds-m-top_medium">
+            <lightning:button label="Edit Contact" onclick="{!c.editContact}" />
+            <lightning:button label="Save Changes" variant="brand" onclick="{!c.saveContact}" />
+        </div>
+    </div>
+</aura:component>

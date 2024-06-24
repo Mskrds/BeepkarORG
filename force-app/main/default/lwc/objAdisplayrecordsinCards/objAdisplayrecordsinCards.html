@@ -1,0 +1,39 @@
+<template>
+    <h2 class="slds-text-heading_medium slds-m-bottom_medium">Suggested Add-ons</h2>
+
+    <template for:each={addOn} for:item="adO">
+        <lightning-card key={adO.Id}>
+            <div class="slds-grid slds-wrap" style="background-color:#F2F2F2;">
+
+                <div class="slds-col slds-size_1-of-4">
+                    <img style="max-height: 120%; max-width: 90%; padding: 1em;" alt="Box logo" src={orderLogo} />
+                    <img src={adO.Candidate_Photo__c} alt={adO.Name} />
+                </div>
+
+                <div class="slds-col slds-size_2-of-4">
+                    <table style="width:100%;">
+                        <tr>
+                            <th style="color:#137bd4; font-size: 1.5rem; text-align: left; padding-top:0.3em;">{adO.Name}</th>
+                            <td><div class="slds-truncate"></div></td>      
+                        </tr>
+
+                        <tr>
+                            <th style="text-align: left; font-size: 17px;">
+                                <span class="indian-currency">&#8377;</span> {adO.Unit_Price__c}
+                            </th>   
+                            <td><div class="slds-truncate"></div></td>
+                        </tr> 
+
+                        <template if:true={adO.Rating__c}>
+                            <c-fivestar-rating-updated value={adO.Rating__c} read-only={readOnly}>
+                            </c-fivestar-rating-updated>
+                        </template>
+                    </table>
+                </div>
+                <div class="slds-col slds-size_1-of-4" style="padding-top: 4em; padding-bottom: 1em;">
+                    <lightning-button variant="brand" label="Add" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                </div>                         
+            </div>
+        </lightning-card>
+    </template>
+</template>

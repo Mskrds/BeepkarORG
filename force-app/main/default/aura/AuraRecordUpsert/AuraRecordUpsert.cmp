@@ -1,0 +1,45 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"  controller="AuraRecordUpsertApex">
+	
+    <aura:attribute name="salutationOptions" type="List" default="[
+                                                            {'label':'Mr.','value':'Mr.'},
+                                                            {'label':'Ms.','value':'Ms.'},
+                                                            
+                                                            ]"/>
+    
+        <aura:attribute name="newcontact" type="contact" default="{ 'sobjectType':'contact',
+                                                                  'Salutation':'',
+                                                                  'FirstName':'',
+                                                                  'LastName':'',
+                                                                  'Email':'',
+                                                                  'Desription':''
+
+                                                            }"/>
+    
+    <lightning:card iconName="standard:contact" title="Add a contact">
+    
+    <div class="slds-p-around_medium">
+        <lightning:layout>
+        
+        <lightning:layoutItem size="4" padding="around-small">
+            <lightning:inputName aura:id="contactobj"
+                                 label="contact Name"
+                                 firstName="{!v.newcontact.FirstName}"
+                                 LastName="{!v.newcontact.LastName}"
+                                 Salutation="{!v.newcontact.Salutation}"
+                                 required="true"/>
+            
+            
+            
+            
+            </lightning:layoutItem>
+       
+            <lightning:layoutItem size="8" padding="around-small"> 
+            <lightning:input aura:id="contactobj" label="Email" type="email" value="{!v.newcontact.Email}"/>
+            <lightning:textarea aura:id="contactobj" label="Comments" value="{!v.newcontact.Desription}"/>
+            <lightning:button label="createContact" onclick="{!c.handleCreateContact}" variant="brand"  class="slds-m-top_medium"/>
+            </lightning:layoutItem>
+        
+        </lightning:layout>
+        </div>  
+    </lightning:card>    
+</aura:component>

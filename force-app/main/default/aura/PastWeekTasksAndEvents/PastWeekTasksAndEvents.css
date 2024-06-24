@@ -1,0 +1,9 @@
+.THIS.record-container {
+    display: flex;
+    flex-direction: row;
+ 
+}
+
+.THIS .field {
+    margin-right: 20px;
+}

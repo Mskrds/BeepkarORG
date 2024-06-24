@@ -1,0 +1,33 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" controller="newContactFormApex">
+        <aura:attribute name="showSpinner" type="Boolean" default="false" />
+
+    <aura:attribute type="sObject" name="newContactForm" default="{
+                                                                  'sObjectType':'Contact',
+                                                                  'LastName':'',
+                                                                  'Phone':'',
+                                                                  'Email':''
+                                                                  }" />
+    <aura:attribute name="message" type="String" />
+    <lightning:card iconName="standard:contact" title="Create a Contact">
+        <lightning:layout>
+            <lightning:layoutItem size="6" padding="around-medium">
+                <lightning:input aura:id="field" type="text" value="{!v.newContactForm.LastName}" label="Last name" placeholder="Last name" required="true" 
+                                 messageWhenValueMissing="Enter Last Name" />
+                <lightning:input aura:id="phone" type="text" value="{!v.newContactForm.Phone}" label="Phone number" placeholder="Phone Number" required="true"  
+                                 pattern="^\d{10}$"
+                                 messageWhenPatternMismatch="Please enter a valid phone number" />
+                                 
+				<lightning:input aura:id="email" type="text" value="{!v.newContactForm.Email}" label="Email Address" placeholder="Email Address" required="true"  
+                                 pattern="^\S+@\S+$" 
+                                 messageWhenPatternMismatch="Please enter a valid email address" />
+
+               
+                <lightning:button label="Create Contact" onclick="{!c.handleClick}" variant="brand" class="slds-m-top_medium" />
+                <aura:if isTrue="{!v.showSpinner}">
+                    <lightning:spinner alternativeText="Loading" />
+                </aura:if>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,14 @@
+<!-- MessageTab.cmp -->
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="messages" type="List" default="[]" />
+    <aura:attribute name="selectedTabMessage" type="String" default="" />
+
+    <lightning:tabset>
+        <lightning:tab label="Messages" id="messagesTab" onactive="{!c.handleTabActivate}">
+            <aura:iteration items="{!v.messages}" var="message">
+                <p>{!message}</p>
+            </aura:iteration>
+            <p>{!v.selectedTabMessage}</p>
+        </lightning:tab>
+    </lightning:tabset>
+</aura:component>

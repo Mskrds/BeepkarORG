@@ -1,0 +1,34 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" controller="scrollableAccandConAPEX">
+    <aura:attribute type="List" name="accDetails" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="slds-scrollable_y" style="height:35rem;width:100%" tabindex="0">
+
+            <aura:iteration items="{!v.accDetails}" var="account">
+                <lightning:card class="headerStyle" iconName="standard:account" title="{!account.Name}">
+                    <aura:set attribute="actions">							
+                        <lightning:button label="New Contact" variant="brand" onclick="{!c.createContact}"/>
+                    </aura:set>
+                    <div class="slds-scrollable_x" style="height:10rem;width:100%" tabindex="0">
+                        <div class="slds-text-longform" style="width:150%">
+                            <lightning:card class="conBodyStyle">
+                                <div class="slds-grid slds-wrap">
+                                    <aura:iteration items="{!account.Contacts}" var="contact">
+                                        <div class="slds-col slds-size_1-of-6">
+                                            <p>First Name : {!contact.FirstName}<br/>
+                                                Last Name : {!contact.LastName}<br/>
+                                                Phone : {!contact.Phone}<br/>
+                                                Email : {!contact.Email}
+                                            </p>
+                                        </div>
+                                    </aura:iteration>
+                                </div>
+                            </lightning:card>
+                        </div>
+                    </div>
+                </lightning:card>
+            </aura:iteration>
+        </div>
+   
+</aura:component>

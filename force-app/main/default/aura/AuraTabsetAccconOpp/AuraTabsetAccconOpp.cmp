@@ -1,0 +1,58 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" controller="allObjectsDetails">
+    
+    <aura:attribute name="columnCon" type="List" />
+    <aura:attribute name="columnAcc" type="List" />
+    <aura:attribute name="columnOpp" type="List" />
+    <aura:attribute name="conListAura" type="List" />
+    <aura:attribute name="accListAura" type="List" />
+    <aura:attribute name="oppListAura" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInitCon}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInitAcc}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInitOpp}" />
+    
+    <lightning:card>
+        <div aura:id="data-entry">
+            <div class="slds-m-around_x-small">
+                <lightning:tabset variant="default" selectedTabId="tab1" >
+                    
+                    <lightning:tab iconName="standard:contact" label="Contacts" aura:id="tab1" tabindex="1" id="tab1" title="Contact">
+                        <div class="slds-p-bottom_x-small slds-align_absolute-center">
+                            <lightning:button  variant="brand" label="New Contact" onclick="{! c.createNewContact }" />
+                        </div>
+                        <lightning:datatable 
+                                             keyField="Id"
+                                             data="{!v.conListAura}"
+                                             columns="{!v.columnCon}"
+                                             hideCheckboxColumn="true"
+                                             />
+                    </lightning:tab>
+                    
+                    <lightning:tab iconName="standard:account" label="Accounts" aura:id="tab2" tabindex="2" id="tab2" title="Account">
+                        <div class="slds-p-bottom_x-small slds-align_absolute-center">
+                            <lightning:button variant="brand" label="New Account" onclick="{! c.createNewAcc }" />
+                        </div>
+                        <lightning:datatable 
+                                             keyField="Id"
+                                             data="{!v.accListAura}"
+                                             columns="{!v.columnAcc}"
+                                             hideCheckboxColumn="true"
+                                             />
+                    </lightning:tab> 
+                    
+                    <lightning:tab iconName="standard:opportunity" label="Opportunities" aura:id="tab3" tabindex="3" id="tab3" title="Opportunities">
+                        <div class="slds-p-bottom_x-small slds-align_absolute-center">
+                            <lightning:button variant="brand" label="New Opportunity" onclick="{! c.createNewOpp }" />
+                        </div>
+                        <lightning:datatable 
+                                             keyField="Id"
+                                             data="{!v.oppListAura}"
+                                             columns="{!v.columnOpp}"
+                                             hideCheckboxColumn="true"
+                                             />
+                    </lightning:tab>
+                </lightning:tabset>
+            </div>
+        </div>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,58 @@
+<!-- Build Pagination Functionality In Salesforce LWC -->
+<template>
+    <lightning-card title=" Get All Lead Records" class="custom-card">
+         <div class="slds-p-around_medium custom-card-content">
+             <table  class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col">Serial Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={pageList} for:item="con">
+                        <tr key={con.Id}>
+                            <td>
+                              <lightning-input type="text" value={con.sno} readonly></lightning-input>
+                            </td>
+                            
+                            <td>
+                                <lightning-input type="text" value={con.Name} readonly></lightning-input>
+                            </td>
+                            <td>
+                                <lightning-input type="Phone" value={con.Phone} readonly></lightning-input>
+                            </td>
+                            <td>
+                                <lightning-input type="Email" value={con.Email} readonly></lightning-input>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+
+            </table>
+
+            <div class="buttons">
+                <div >
+                    <button class="slds-button slds-button_success" label="Previous" onclick={handlePrevious}>Previous</button>
+                </div>
+                <!-- <div>
+                    <button label="First" onclick={handleFirst}>First</button>
+                </div> -->
+                <div>
+                    <span class="page-indicator">{currentPage} of {totalPages}</span>
+                </div>
+                
+                
+                <!-- <div>
+                     <button label="Last"  onclick={handleLast}>Last</button>
+                </div> -->
+               
+                <div>
+                    <button class="slds-button slds-button_success" label="Next"  onclick={handleNext}>Next</button>
+                </div>
+            </div>
+         </div>
+    </lightning-card>
+</template>

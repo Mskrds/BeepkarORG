@@ -1,0 +1,56 @@
+<!-- contactList.html -->
+<template>
+    <div class="slds-m-around_medium">
+        <!-- Filter Section -->
+        <lightning-input
+            label="Filter by Name"
+            type="search"
+            value={filterText}
+            onchange={handleFilterChange}>
+        </lightning-input>
+
+        <!-- Sort Section -->
+       <lightning-combobox
+    label="Sort by"
+    value={selectedSortOption}
+    options={sortOptions}
+    onchange={handleSortChange}>
+    </lightning-combobox>
+
+        <!-- Contacts Table -->
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Name" onchange={handleSortColumn}>
+                            Name
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Email" onchange={handleSortColumn}>
+                            Email
+                        </div>
+                    </th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={filteredContacts} for:item="contact">
+                    <tr key={contact.Id}>
+                        <td data-label="Name">
+                            <div class="slds-truncate" title={contact.Name}>
+                                {contact.Name}
+                            </div>
+                        </td>
+                        <td data-label="Email">
+                            <div class="slds-truncate" title={contact.Email}>
+                                {contact.Email}
+                            </div>
+                        </td>
+                        
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+</template>

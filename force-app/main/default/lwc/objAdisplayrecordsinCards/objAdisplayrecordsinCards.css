@@ -1,0 +1,48 @@
+/* objAdisplayrecordsinCards.css */
+
+:host {
+    display: block;
+}
+
+.slds-text-heading_medium {
+    color: #137bd4;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.slds-wrap {
+    background-color: #f2f2f2;
+    padding: 1rem;
+}
+
+.slds-col {
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+.slds-size_1-of-4 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.slds-size_2-of-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.slds-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.indian-currency {
+    color: #137bd4;
+    font-size: 17px;
+}
+
+.lightning-button {
+    margin-left: 0.5rem;
+}
+
+/* Add your custom styles for other elements as needed */

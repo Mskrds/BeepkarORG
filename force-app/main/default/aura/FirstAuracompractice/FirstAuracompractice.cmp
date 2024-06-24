@@ -1,0 +1,42 @@
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global" >
+	
+    <div class="slds-col modal-header slds-modal__header">
+    <h2 class="title slds-text-heading--medium">Duplicate Create Rec Form</h2>
+</div>
+    
+    <aura:attribute name="message" type="string" default="Please fill the below Application"/>
+    <aura:attribute name= "recordId" type="string"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}" />
+   
+        {!v.message}
+     
+         
+    <br/>
+    <div  class="slds-float_right" >
+     <!-- Neutral -->
+    <lightning:button label="Download" iconName="utility:download" />
+
+
+    <!-- Brand -->
+    <lightning:button label="Edit" iconName="utility:edit" variant="brand" />
+    
+
+    <!-- Destructive -->
+    <lightning:button label="Delete" iconName="utility:delete" variant="destructive" />
+</div>
+    
+     <div class="row">
+         
+        <lightning:input name="Firstname" label="FirstName" />
+        <lightning:input name="LastName" label="LastName"/>
+        <lightning:input name="Email" label="Email" placeholder="email"/>
+      <br/>
+     <!-- <lightning:button class="slds-align_absolute-center" variant="brand" label="Saved" onclick="{! c.handleClick }" />-->
+     </div>
+    
+   <div class="slds-col modal-footer slds-modal__footer">        
+    <lightning:button variant="neutral" label="Cancel" onclick="{! c.cancelClick }" />      
+    <lightning:button variant="brand" label="Save" onclick="{! c.saveClick }" />
+</div>
+ 
+</aura:component>

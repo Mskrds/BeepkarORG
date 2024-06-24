@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Basic Information" icon-name="action:info">
+      <div class="slds-m-around_medium">
+        <p>firstname is:{myFirstName}</p>
+        <lightning-input label="candidateFirstName" name="FirstName" value={myFirstName} data-id="reset" onchange={changeHandler}></lightning-input>
+        <p>lastname is: {myLastName}</p>
+        <lightning-input label="C.LastName" name="LastName" value={myLastName} data-id="reset" onchange={changeHandler}></lightning-input>
+        <p>emaill is:{Email}</p>
+        <lightning-input label="C.Email" name="Email" value={Email} data-id="reset" onchange={changeHandler}></lightning-input>
+<br/>
+        <lightning-button label="SAVE" varient="Brand" type="submit" onclick={saverecordHandler}></lightning-button>
+      </div>
+    </lightning-card>
+  </template>

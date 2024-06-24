@@ -1,0 +1,11 @@
+<!-- relationshipComponent.html -->
+<template>
+    <lightning-input label="Search" value={searchTerm} onchange={handleSearch}></lightning-input>
+    <template if:true={searchResults}>
+        <ul>
+            <template for:each={searchResults} for:item="result">
+                <li key={result.Id} onclick={handleSelectResult}>{result.Name}</li>
+            </template>
+        </ul>
+    </template>
+</template>

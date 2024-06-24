@@ -1,0 +1,30 @@
+<!-- opportunityListLWC.html -->
+<template>
+    <lightning-card title="Account Related Opportunities" icon-name="standard:opportunity">
+        <div class="slds-m-around_medium">
+            <template if:true={opportunities.data}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Opportunity Name</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Close Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={opportunities.data} for:item="opportunity">
+                            <tr key={opportunity.Id}>
+                                <td>{opportunity.Name}</td>
+                                <td>${opportunity.Amount}</td>
+                                <td>{opportunity.CloseDate}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+            <template if:true={opportunities.error}>
+                <p>Error loading opportunities</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

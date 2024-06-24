@@ -1,0 +1,35 @@
+.dummy{
+	color : black;
+}
+/* Add this to your CSS */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.buttons div {
+    margin: 0 8px;
+}
+
+.buttons button,
+.buttons span {
+    font-size: 14px;
+    padding: 8px 16px;
+    border: 1px solid #0070d2;
+    border-radius: 4px;
+    background-color: #0070d2;
+    color: #fff;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #005094;
+    border-color: #005094;
+}
+
+.page-indicator {
+    font-size: 14px;
+    color: #555;
+}

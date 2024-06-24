@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title=" Prent component" class="custom-card">
+        <div class="slds-p-around_medium custom-card-content">
+            <table  class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                <thead>
+                        <tr class="slds-line-height_reset">
+                            <th>Name</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <template if:true={visibleContacts}>
+                        <template for:each={visibleContacts} for:item="contact">
+                            <tr key={contact.Id}> 
+                                <td>
+                                    <lightning-input type="text" value={contact.Name} readonly></lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                        </template>
+          
+                </tbody>
+
+            </table>
+                
+            <div slot="footer" class="slds-var-m-vertical_medium">
+                <c-child-pagination records={totalContacts} onupdate={updateContactHandler}></c-child-pagination>
+            </div>
+            
+        </div>
+    </lightning-card>
+</template>

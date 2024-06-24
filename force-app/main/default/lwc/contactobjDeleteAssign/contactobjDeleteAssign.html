@@ -1,0 +1,30 @@
+<!-- ConList.html -->
+<template>
+   
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Id</th>
+                <th>LastName</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={contacts.data}  for:item="con">
+                <tr key={con.Id}>
+                    <td>
+                        <lightning-input type="radio" name="radioButton" value={con.Id} onchange={handleChange}></lightning-input>
+                    </td>
+                    <td>{con.Id}</td>
+                    <td>{con.LastName}</td>
+                   
+                </tr>
+            </template>
+        </tbody>
+
+    </table>
+     <lightning-button label="Delete" variant="brand" value={currentRecordId} onclick={handleDelete}></lightning-button>
+    <!-- triggers the handleDelete method when clicked, and it passes the value of currentRecordId to the method. -->
+    <!-- I can delete Only one record by this component  -->
+</template>

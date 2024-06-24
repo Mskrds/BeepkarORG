@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Custom Dependent Picklist" icon-name="custom:custom63">
+        <lightning-combobox name="Type" label="Type" options={typeOptions}
+            onchange={handleTypeChange} value={selectedTypeValue}></lightning-combobox>
+
+        <lightning-combobox name="Rating" label="Rating" options={ratingOptions}
+            onchange={handleRatingChange} value={selectedRatingValue}></lightning-combobox>
+    </lightning-card>
+</template>

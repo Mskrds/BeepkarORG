@@ -1,0 +1,56 @@
+<!-- Parent Component accountListRow.html-->
+
+<template>
+    <template if:true={showAll}>
+        <lightning-card class="custom-card">
+            <div class="main">
+                <h2>Get Account Records</h2>
+            </div>
+            <div class="slds-p-around_medium custom-card-content">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                     <tr class="slds-line-height_reset custom-header">
+                            <th class="slds-col slds-size_1-of-12">Sno</th>
+                            <th class="slds-col slds-size_3-of-12">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Rating</th>
+                             <th scope="col">Ownership</th>
+                             <th scope="col">Type</th>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <template for:each={newaccList} for:item="li" for:index="index">
+                                <tr key={li.Id}>
+                                    <td>
+                                        <lightning-input type="text" value={li.sno} data-index={index} readonly></lightning-input>
+                                    </td>
+                                    <td>
+                                        <lightning-formatted-text value={li.Name} data-id={li.Id} onclick={handleRowClick}></lightning-formatted-text>
+                                    </td>
+                                    <td>
+                                        <lightning-input type="text" value={li.Email__c} data-index={index} data-field="email" readonly></lightning-input>
+                                    </td>
+                                    
+                                    <td>
+                                        <lightning-input type="picklist" value={li.Rating} data-index={index} data-field="Rating" readonly></lightning-input>
+                                    </td>
+                                     <td>
+                                        <lightning-input type="picklist" value={li.Ownership} data-index={index} data-field="Ownership" readonly></lightning-input>
+                                    </td>
+                                     <td>
+                                        <lightning-input type="picklist" value={li.Type} data-index={index} data-field="Type" readonly></lightning-input>
+                                    </td>
+                                    
+
+                                </tr>
+                            </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+        <!--CALLING THE CHILD COMPONENT-->
+</template>
+   <template if:true={showChild}>
+    <c-account-details account-id={accountId}></c-account-details>
+   </template>
+</template>

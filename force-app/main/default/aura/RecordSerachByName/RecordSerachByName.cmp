@@ -1,0 +1,23 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" controller="SearchController">
+    <aura:attribute name="searchCriteria" type="String" />
+    <aura:attribute name="searchResults" type="List" />
+    <aura:attribute name="selectedField" type="String" />
+
+    <lightning:input
+        label="Search"
+        value="{!v.searchCriteria}"
+        placeholder="Enter search criteria"/>
+    <lightning:select
+        label="Search Field"
+        value="{!v.selectedField}">
+        <option value="Name">Account Name</option>
+        <option value="Industry">Industry</option>
+       
+    </lightning:select>
+    <lightning:button label="Search" onclick="{!c.handleSearch}" />
+
+    <aura:iteration items="{!v.searchResults}" var="result">
+        <p>{!result.Name}</p>
+    </aura:iteration>
+</aura:component>

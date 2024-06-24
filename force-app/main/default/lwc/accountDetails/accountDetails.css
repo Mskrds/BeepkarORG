@@ -1,0 +1,10 @@
+.butns{
+        display: flex;
+        justify-content: space-between;
+        text-align: center ;
+        padding:2%;
+        align-items: center;
+    }
+.spc{
+    padding:1%;
+}

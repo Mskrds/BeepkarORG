@@ -1,0 +1,57 @@
+<!-- 
+<template>
+    <lightning-button label="Toggle Days" onclick={toggleCombobox}></lightning-button>
+    <lightning-combobox
+        if:true={showCombobox}
+        name="weekDays"
+        label="Select days"
+        value={selectedDays}
+        options={weekDaysOptions}
+        variant="label-hidden"
+        placeholder="Select days"
+        onchange={handleDayChange}
+        multiple
+    ></lightning-combobox>
+</template> -->
+<!-- <template>
+    <lightning-combobox
+        name="selectedDaysDropdown"
+        label="Select days"
+        value={selectedDays}
+        options={dropdownOptions}
+        variant="label-hidden"
+        placeholder="Select days"
+        onchange={handleDropdownChange}
+        multiple
+    ></lightning-combobox>
+
+    <div class="checkbox-container">
+        <template for:each={weekDaysOptions} for:item="day">
+            <div key={day.value} class="checkbox-item">
+                <lightning-input
+                    type="checkbox"
+                    label={day.label}
+                    value={day.value}
+                    checked={day.checked}
+                    onchange={handleCheckboxChange}
+                ></lightning-input>
+            </div>
+        </template>
+    </div>
+</template> -->
+
+<template>
+    <div class="drag-container" draggable="true" ondragstart={handleDragStart} onclick={showWeekdays}>
+        <p>Drag me to see weekdays</p>
+    </div>
+    <template if:true={showColumn}>
+        <div class="weekday-column">
+            <template for:each={weekDaysOptions} for:item="day" key={day.value}>
+                <div key={day.value} class="weekday-item">
+                    <input type="checkbox" checked={day.checked} onchange={handleCheckboxChange} />
+                    <label>{day.label}</label>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

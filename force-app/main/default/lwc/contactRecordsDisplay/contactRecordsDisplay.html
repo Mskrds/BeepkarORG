@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="All contact" icon-name="standard:contact">
+        <div class="slds-p-around_medium">
+            
+           <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr>
+                        <th>LastName</th> 
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Department</th>
+                        <!-- Add more columns as needed -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={data} for:item="con">
+                        <tr key={con.Id}>
+                            <td>{con.LastName}</td> 
+                            <td>{con.Email}</td> 
+                            <td>{con.Phone}</td>    
+                            <td>{con.Department}</td>
+
+                        </tr>                        
+                    </template>          
+                </tbody>
+            </table>
+            
+        </div>
+    </lightning-card>
+</template>

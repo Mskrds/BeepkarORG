@@ -1,0 +1,18 @@
+/* .dummy{
+	color : blue;
+}  */
+.drag-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: move;
+}
+
+.weekday-column {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.weekday-item {
+    margin: 5px;
+}

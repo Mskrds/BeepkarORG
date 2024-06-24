@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="parentAttr" type="string" default="from Parent Component."/>
+    <div class="slds-m-top--large">
+    <div class="slds-align_absolute-center">
+        <b>In Parent component:</b>{!v.parentAtrr}
+        
+        </div>
+    <div class ="slds-m-top--large slds-m-left--large slds-align_absolute-center">
+        <c:AuraChildtoParent childAttr="{!v.parentAttr}"/>
+    </div>
+    </div>  
+</aura:component>

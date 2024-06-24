@@ -1,0 +1,31 @@
+<!--create a lwc component to insert the product standard object with checkbox functionality-->
+<!-- productInsertion.html -->
+<!-- productInsertion.html -->
+<template>
+    <lightning-card title="Product Insertion">
+       
+        
+
+        <!-- Table to display list of products -->
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={productList} for:item="product">
+                    <tr key={product.Id}>
+                        <td>{product.Name}</td>
+                        <td>{product.IsActive__c}</td>
+                        <td>
+                            <lightning-input type="checkbox" name={product.Id} value={product.Id} checked={product.isSelected} onchange={handleCheckboxChange}></lightning-input>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        <lightning-button label="Insert Product" onclick={insertProduct}></lightning-button>
+    </lightning-card>
+</template>

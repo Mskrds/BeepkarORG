@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Opportunity Line Items">
+        <div class="slds-p-around_medium">
+            <lightning-datatable
+                key-field="Id"
+                data={lineItems}
+                columns={columns}
+                onrowselection={handleRowSelection}>
+            </lightning-datatable>
+            <div class="slds-m-top_medium" if:true={selectedRows.length}>
+                <lightning-button variant="brand" label="Insert Opportunity Line Item" onclick={insertOpportunityLineItem}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

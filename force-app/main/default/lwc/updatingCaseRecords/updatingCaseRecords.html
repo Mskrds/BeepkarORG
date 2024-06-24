@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title=" Case records" class="custom-card">
+         <div class="slds-p-around_medium custom-card-content">
+             <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th>Serial Number</th>
+                        <th>Subject</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={newCaseList} for:item="cse" for:index="index">
+                        <tr key={cse.Id}>
+                            <td>
+                                <lightning-input type="text" value={cse.sno} onchange={handleInputChange} data-index={index} data-field="SerialNumber" disabled></lightning-input>
+                                
+                            </td>
+                            <td>
+                                <lightning-input type="text" value={cse.Subject} onchange={handleInputChange} data-index={index} data-field="Subject"></lightning-input>
+                            </td>
+                            <td>
+                                <lightning-input type="text" value={cse.Description} onchange={handleInputChange} data-index={index} data-field="Description"></lightning-input>
+                            </td>
+                            <td>
+                                <lightning-input type="Phone" value={cse.Status} onchange={handleInputChange} data-index={index} data-field="Status"></lightning-input>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+
+            </table>
+            <button class="slds-button slds-button_brand" onclick={handleSave}>Save</button>
+         </div>
+    </lightning-card>
+
+</template>

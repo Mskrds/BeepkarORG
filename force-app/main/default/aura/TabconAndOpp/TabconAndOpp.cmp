@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" ><!-- DualTabView.cmp -->
+
+    <lightning:card title="Contact and Opportunity Tabs">
+        <lightning:tabset>
+            <!-- Tab 1: Related Contact -->
+            <lightning:tab label="Related Contact" id="contactTab">
+                Welcome to the Contact Tab
+            </lightning:tab>
+
+            <!-- Tab 2: Related Opportunities -->
+            <lightning:tab label="Related Opportunities" id="opportunityTab">
+                Welcome to the Opportunity Tab
+            </lightning:tab>
+        </lightning:tabset>
+    </lightning:card>
+</aura:component>

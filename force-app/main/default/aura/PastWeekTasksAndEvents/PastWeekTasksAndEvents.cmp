@@ -1,0 +1,42 @@
+<!-- PastWeekTasksAndEvents.cmp -->
+<aura:component  implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="PastWeekTasksAndEventsController">
+    <aura:attribute name="tasks" type="Task[]" />
+    <aura:attribute name="events" type="Event[]" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:card title="Past Week Tasks and Events">
+<!-- For Task Records -->
+    <h2>Task Records:</h2>
+    <aura:iteration items="{!v.tasks}" var="task">
+     <div class="record-container"></div>
+              <!-- <p>Subject: {!task.Subject}</p> -  <p>Status: {!task.Status}</p> -  <p>Created Date: {!task.CreatedDate}</p> -<p>Email: {!task.Email}</p>-->
+      <div class="record-container">
+            <div class="field">Subject:
+                {!task.Subject}</div>
+            <div class="field">Status:
+                {!task.Status}</div>
+            <div class="field">Created Date: {!task.CreatedDate}</div>
+            <div class="field">Email: {!task.Email}</div>
+       </div>
+        <hr/>
+        
+    </aura:iteration>
+    
+<!-- For Event Records -->
+    <h2>Event Records:</h2>
+    <aura:iteration items="{!v.events}" var="event">
+        <!--<p>{!event.Subject} - {!event.Status} - {!event.StartDateTime} - {!event.Location}</p>-->
+        <div class="record-container"></div>
+              <!-- <p>Subject: {!task.Subject}</p> -  <p>Status: {!task.Status}</p> -  <p>Created Date: {!task.CreatedDate}</p> -<p>Email: {!task.Email}</p>-->
+      <div class="record-container">
+            <div class="field">Subject: 
+                {!task.Subject}</div>
+            <div class="field">Status:
+                {!task.Status}</div>
+            <div class="field">Created Date: {!task.CreatedDate}</div>
+            <div class="field">Email: {!task.Email}</div>
+       </div>
+        <hr/>
+        </aura:iteration>
+        </lightning:card>
+</aura:component>

@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="AssigContactControllerForm">
+    <!-- ContactFormWithoutButton.cmp -->
+
+    <aura:attribute name="firstName" type="String" />
+    <aura:attribute name="lastName" type="String" />
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="phone" type="String" />
+
+    <div>
+        <label>First Name:</label>
+        <ui:inputText value="{!v.firstName}" required="true"/>
+    </div>
+    <div>
+        <label>Last Name:</label>
+        <ui:inputText value="{!v.lastName}" required="true"/>
+    </div>
+    <div>
+        <label>Email:</label>
+        <ui:inputText value="{!v.email}" required="true"/>
+    </div>
+    <div>
+        <label>Phone:</label>
+        <ui:inputText value="{!v.phone}" required="true"/>
+    </div>
+    <div>
+        <ui:button label="Create Contact" press="{!c.createContact}" />
+    </div>
+</aura:component>
